@@ -63,8 +63,9 @@ let g:solarized_termcolors=16
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "solarized"
+" Requires https://github.com/powerline/fonts
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme = "solarized"
 
 " For airline
 set laststatus=2

@@ -9,14 +9,16 @@ TIMESTAMP=$(date +"%Y%m%d%H%M")
 # list dotfiles to install
 FILES="bashrc vimrc vim"
 
-if [ -d $BACKUP_DIR ]
-then
-  echo "Creating $BACKUP_DIR to backup current dotfiles ~"
-  mkdir -p $BACKUP_DIR
-fi
+mkdir -p $BACKUP_DIR
 
 for file in $FILES; do
   mv ~/.$file $BACKUP_DIR/.$file.$TIMESTAMP
   echo "Installing $file"
   ln -s $DOTFILES_DIR/$file ~/.$file
 done
+
+# ensure .bash_profile exists and is loading .bashrc
+if [ ! -f ~/.bash_profile ]; then
+  echo "Installing minimal .bash_profile"
+  cp $DOTFILES_DIR/bash_profile ~/.bash_profile
+fi
