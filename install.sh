@@ -2,9 +2,11 @@
 
 DOTFILES_DIR=~/.dotfiles
 BACKUP_DIR=~/.dotfiles.backup
+
+# timestamp for backup copies of dotfiles
 TIMESTAMP=$(date +"%Y%m%d%H%M")
 
-# dotfiles to install
+# list dotfiles to install
 FILES="bashrc vimrc vim"
 
 if [ -d $BACKUP_DIR ]
