@@ -11,3 +11,6 @@ brew install vim
 # github CLI
 brew install hub
 
+# silver-searcher
+brew install the_silver_searcher
+

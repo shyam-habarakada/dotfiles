@@ -64,6 +64,7 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 
 " Requires https://github.com/powerline/fonts
+" airline now works without these custom fonts
 " let g:airline_powerline_fonts = 1
 " let g:airline_theme = "solarized"
 
@@ -75,6 +76,18 @@ let g:ctrlp_root_markers = '.git'
 let g:ctrlp_working_path_mode = 'r'
 
 call pathogen#infect()
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 if $TERM_PROGRAM == "Apple_Terminal"
   set background=dark
@@ -95,11 +108,6 @@ set wildignore+=/usr/local/share/vim/**
 autocmd BufWritePre * :%s/\s\+$//e
 
 autocmd BufNewFile,BufRead *.jst.eco set filetype=xml
-
-autocmd FileType javascript call JavaScriptFold()
-
-
-" set runtimepath^=~/.vim/bundle/ag
 
 if $VIM_CRONTAB == "true"
   set nobackup
