@@ -14,3 +14,5 @@ brew install hub
 # silver-searcher
 brew install the_silver_searcher
 
+# glances
+brew install glances
