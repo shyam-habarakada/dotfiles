@@ -53,15 +53,9 @@ set nowrap
 set backspace=indent,eol,start
 set path=**
 
-syntax enable
-
 " Tabs and trailing spaces
 set list
 set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
-
-let g:solarized_termcolors=16
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
 
 " Requires https://github.com/powerline/fonts
 " airline now works without these custom fonts
@@ -77,6 +71,10 @@ let g:ctrlp_working_path_mode = 'r'
 
 call pathogen#infect()
 
+syntax enable
+set background=light
+colorscheme solarized
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -89,11 +87,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-if $TERM_PROGRAM == "Apple_Terminal"
-  set background=dark
-endif
-
-colorscheme solarized
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches

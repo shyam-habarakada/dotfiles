@@ -1,7 +1,5 @@
 DOTFILES_DIR=~/.dotfiles
 
-echo $DOTFILES_DIR/shell/colors
-
 source $DOTFILES_DIR/shell/colors
 source $DOTFILES_DIR/shell/aliases
 source $DOTFILES_DIR/shell/editors

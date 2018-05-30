@@ -1,4 +1,5 @@
 # dotfiles
+
 .files
 
 ## installation
@@ -8,3 +9,9 @@
 * `. install-cli-tools.sh`
 * `. install-desktop-apps.sh`
 * `. install.sh`
+
+## osx terminal solarized theme installation
+
+* Install Terminal color scheme(s) for solarize by opening `~/.dotfiles/shell/osx-terminal.app-colors-solarized` and double clicking the file. Once opened, in Terminal preferenced, set the chosen Solarized theme to be the default.
+
+
