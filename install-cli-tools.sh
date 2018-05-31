@@ -8,6 +8,12 @@ fi
 # vim
 brew install vim
 
+# bash-eompletion
+brew install bash-completion
+
+# better git
+brew install git
+
 # github CLI
 brew install hub
 
