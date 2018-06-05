@@ -1,0 +1,28 @@
+[alias]
+  st = status -s -b
+  co = checkout
+  cb = checkout -b
+  cm = commit -m
+  b = branch
+  l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  ll = log --pretty=format:\"%Cred%h%Creset %C(green)%ad%Creset | %s%C(yellow)%d%Creset %C(bold blue)<%an>%Creset\" --graph --date=default
+  undo = reset HEAD~1
+  recommit = commit --amend
+  conflicts = diff --name-only --diff-filter=U
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  rocess = git-lfs filter-process
+  required = true
+
+[user]
+  name = Shyam Habarakada
+  email = shyam.habarakada@gmail.com
+
+[color]
+    ui = true
+    branch = auto
+    diff = auto
+    status = auto
+
