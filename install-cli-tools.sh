@@ -22,3 +22,10 @@ brew install the_silver_searcher
 
 # glances
 brew install glances
+
+# telnet
+brew install telnet
+
+# mysql-client
+brew install mysql-client
+
