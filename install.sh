@@ -29,3 +29,7 @@ if [ ! -f ~/.bash_profile ]; then
   echo "Installing minimal .bash_profile"
   cp $DOTFILES_DIR/bash_profile ~/.bash_profile
 fi
+
+# install .tm_properties
+ln -s $DOTFILES_DIR/textmate/tm_properties ~/.tm_properties
+
