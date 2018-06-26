@@ -6,6 +6,11 @@ function docker-clean() {
   docker volume rm $(docker volume ls -f dangling=true -q)
 }
 
-alias dc=docker-compose
+function dc() {
+  pushd ~/dev/benchpress-server > /dev/null
+  docker-compose "$@"
+  popd > /dev/null
+}
+
 alias dm=docker-machine
 
