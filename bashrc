@@ -13,3 +13,7 @@ fi
 if [ -f $DOTFILES_DIR/git/hub.bash_completion.sh ]; then
   . $DOTFILES_DIR/git/hub.bash_completion.sh
 fi
+
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

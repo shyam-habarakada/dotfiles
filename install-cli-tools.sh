@@ -29,3 +29,7 @@ brew install telnet
 # mysql-client
 brew install mysql-client
 
+# nvm
+brew install nvm
+mkdir ~/.nvm
+
