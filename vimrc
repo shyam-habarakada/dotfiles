@@ -33,7 +33,7 @@ endf
 
 set foldlevelstart=2
 set foldmethod=syntax
-set foldnestmax=2
+set foldnestmax=4
 set foldtext=CustomFoldText()
 
 " Don't screw up folds when inserting text that might affect them, until
