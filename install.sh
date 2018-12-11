@@ -31,5 +31,6 @@ if [ ! -f ~/.bash_profile ]; then
 fi
 
 # install .tm_properties
-ln -s $DOTFILES_DIR/textmate/tm_properties ~/.tm_properties
-
+if [ ! -f ~/.tm_properties ]; then
+  ln -s $DOTFILES_DIR/textmate/tm_properties ~/.tm_properties
+fi
