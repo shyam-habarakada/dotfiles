@@ -7,7 +7,6 @@ function docker-clean() {
 }
 
 function dc() {
-  pushd ~/dev/benchpress-server > /dev/null
   docker-compose "$@"
   popd > /dev/null
 }
