@@ -6,10 +6,6 @@ function docker-clean() {
   docker volume rm $(docker volume ls -f dangling=true -q)
 }
 
-function dc() {
-  docker-compose "$@"
-  popd > /dev/null
-}
-
+alias dc=docker-compose
 alias dm=docker-machine
 
