@@ -33,3 +33,6 @@ brew install mysql-client
 brew install nvm
 mkdir ~/.nvm
 
+# ctop
+brew install ctop
+
