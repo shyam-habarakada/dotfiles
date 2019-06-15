@@ -18,8 +18,8 @@
 	process = git-lfs filter-process
 
 [user]
-  name = shyam-habarakada
-  email = shyam.habarakada@gmail.com
+	name = shyam-habarakada
+	email = shyam.habarakada@gmail.com
 
 [color]
     ui = true
