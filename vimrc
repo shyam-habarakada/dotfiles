@@ -36,6 +36,9 @@ set foldmethod=syntax
 set foldnestmax=4
 set foldtext=CustomFoldText()
 
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
 " Don't screw up folds when inserting text that might affect them, until
 " leaving insert mode. Foldmethod is local to the window.
 autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual

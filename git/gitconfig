@@ -27,3 +27,7 @@
     diff = auto
     status = auto
 
+[push]
+	default = current
+[core]
+	autocrlf = input
