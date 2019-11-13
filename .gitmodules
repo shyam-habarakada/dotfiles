@@ -25,3 +25,9 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/vim-ack"]
+	path = vim/bundle/vim-ack
+	url = git@github.com:mileszs/ack.vim.git
+[submodule "vim/bundle/vim-typescript"]
+	path = vim/bundle/vim-typescript
+	url = https://github.com/leafgarland/typescript-vim.git

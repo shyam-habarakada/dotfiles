@@ -78,18 +78,18 @@ syntax enable
 set background=light
 colorscheme solarized
 
-" The Silver Searcher
+" The Silver Searcher and quickfix tweaks
 if executable('ag')
-  " Use ag over grep
+  let g:ackprg = 'ag --vimgrep'
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 
+" shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
