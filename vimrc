@@ -31,7 +31,7 @@ fu! CustomFoldText()
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
 
-set foldlevelstart=2
+set nofoldenable
 set foldmethod=syntax
 set foldnestmax=4
 set foldtext=CustomFoldText()
@@ -80,8 +80,17 @@ colorscheme solarized
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
+
+  " disable Ack
+  " let g:ackprg = 'ag --vimgrep'
+
   set grepprg=ag\ --nogroup\ --nocolor
+  " bind K to grep word under cursor
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -90,6 +99,7 @@ endif
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
+map <C-l> :ccl<CR>
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
