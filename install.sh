@@ -7,7 +7,7 @@ BACKUP_DIR=~/.dotfiles.backup
 TIMESTAMP=$(date +"%Y%m%d%H%M")
 
 # list dotfiles to install
-FILES="bashrc vimrc vim screenrc"
+FILES="bashrc vimrc vim screenrc zshrc"
 
 mkdir -p $BACKUP_DIR
 
@@ -30,7 +30,3 @@ if [ ! -f ~/.bash_profile ]; then
   cp $DOTFILES_DIR/bash_profile ~/.bash_profile
 fi
 
-# install .tm_properties
-if [ ! -f ~/.tm_properties ]; then
-  ln -s $DOTFILES_DIR/textmate/tm_properties ~/.tm_properties
-fi

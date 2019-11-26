@@ -75,8 +75,15 @@ let g:ctrlp_working_path_mode = 'r'
 call pathogen#infect()
 
 syntax enable
+
 set background=light
+set cursorline
+
 colorscheme solarized
+
+" Override CursorLineNr
+hi CursorLineNr ctermbg=Cyan ctermfg=White
+
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
@@ -84,14 +91,13 @@ if executable('ag')
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 
-  " disable Ack
-  " let g:ackprg = 'ag --vimgrep'
-
   set grepprg=ag\ --nogroup\ --nocolor
+
   " bind K to grep word under cursor
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
@@ -106,10 +112,6 @@ set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*.zip,*~,log/**,tmp/**,*.log,.git/**
 set wildignore+=**/source_maps/**
 set wildignore+=/usr/local/share/vim/**
-
-"quick save
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>a
 
 autocmd BufWritePre * :%s/\s\+$//e
 
