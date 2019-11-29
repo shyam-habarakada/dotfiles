@@ -92,6 +92,6 @@ alias ctop="ctop -a -i"
 # https://gist.github.com/evanscottgray/8571828#gistcomment-2594902
 alias dcpurge='docker ps -q | xargs docker stop ; docker system prune -a'
 
-[[ -f .zshrc-private ]] && source .zshrc-private
+[[ -f $HOME/.zshrc-private ]] && source $HOME/.zshrc-private
 
 
