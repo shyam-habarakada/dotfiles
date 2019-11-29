@@ -86,3 +86,6 @@ alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper
 alias gtw="glances --theme-white"
 alias ctop="ctop -a -i"
 
+[[ -f .zshrc-private ]] && source .zshrc-private
+
+
