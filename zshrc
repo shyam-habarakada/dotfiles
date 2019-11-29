@@ -56,7 +56,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git last-working-dir)
+plugins=(
+  git
+  last-working-dir
+  docker-compose
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,6 +89,8 @@ alias git="hub"
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil"
 alias gtw="glances --theme-white"
 alias ctop="ctop -a -i"
+# https://gist.github.com/evanscottgray/8571828#gistcomment-2594902
+alias dcpurge='docker ps -q | xargs docker stop ; docker system prune -a'
 
 [[ -f .zshrc-private ]] && source .zshrc-private
 
