@@ -40,3 +40,6 @@ mkdir ~/.nvm
 # ctop
 brew install ctop
 
+# awscli
+brew install awscli
+
