@@ -7,22 +7,15 @@ BACKUP_DIR=~/.dotfiles.backup
 TIMESTAMP=$(date +"%Y%m%d%H%M")
 
 # list dotfiles to install
-FILES="bashrc vimrc vim screenrc zshrc"
+declare -a FILES=("bashrc" "vimrc" "vim" "screenrc" "zshrc")
 
 mkdir -p $BACKUP_DIR
 
-for file in $FILES; do
+for file in "${FILES[@]}"; do
   mv ~/.$file $BACKUP_DIR/.$file.$TIMESTAMP
   echo "Installing $file"
   ln -s $DOTFILES_DIR/$file ~/.$file
 done
-
-# install .gitconfig
-[ -f ~/.gitconfig ] && mv ~/.gitconfig $BACKUP_DIR/.gitconfig.$TIMESTAMP
-[ -f ~/.gitignore_global ] && mv ~/.gitignore_global $BACKUP_DIR/.gitignore_global.$TIMESTAMP
-echo "Installing .gitconfig files"
-ln -s $DOTFILES_DIR/git/gitconfig ~/.gitconfig
-ln -s $DOTFILES_DIR/git/gitignore_global ~/.gitignore_global
 
 # ensure .bash_profile exists and is loading .bashrc
 if [ ! -f ~/.bash_profile ]; then
