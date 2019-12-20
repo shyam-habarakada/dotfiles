@@ -1,8 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="shyam"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -96,3 +98,6 @@ alias dockerrestart='killall Docker && open /Applications/Docker.app'
 [[ -f $HOME/.zshrc-private ]] && source $HOME/.zshrc-private
 
 
+
+export NVM_DIR="/home/shabarakada/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
