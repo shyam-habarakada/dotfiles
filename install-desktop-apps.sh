@@ -5,3 +5,4 @@ brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" 1password
 brew cask install --appdir="/Applications" keepingyouawake
 brew cask install --appdir="/Applications" postman
+brew cask install --appdir="/Applications" xquartz
