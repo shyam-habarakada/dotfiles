@@ -1,9 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+[[ -f $HOME/.zshrc-private ]] && source $HOME/.zshrc-private
+
 ZSH_THEME="shyam"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -50,9 +50,6 @@ ZSH_THEME="shyam"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -90,14 +87,12 @@ source $ZSH/oh-my-zsh.sh
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil"
 alias gtw="glances --theme-white"
 alias ctop="ctop -a -i"
+
 # https://gist.github.com/evanscottgray/8571828#gistcomment-2594902
 alias dcpurge='docker ps -q | xargs docker stop ; docker system prune -a'
+
 # https://forums.docker.com/t/restart-docker-from-command-line/9420/4
 alias dockerrestart='killall Docker && open /Applications/Docker.app'
-
-[[ -f $HOME/.zshrc-private ]] && source $HOME/.zshrc-private
-
-
 
 export NVM_DIR="/home/shabarakada/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
