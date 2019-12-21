@@ -7,7 +7,7 @@ BACKUP_DIR=~/.dotfiles.backup
 TIMESTAMP=$(date +"%Y%m%d%H%M")
 
 # list dotfiles to install
-declare -a FILES=("bashrc" "vimrc" "vim" "screenrc" "zshrc")
+declare -a FILES=("bashrc" "vimrc" "vim" "screenrc" "zshrc" "oh-my-zsh-custom")
 
 mkdir -p $BACKUP_DIR
 
