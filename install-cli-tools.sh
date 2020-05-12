@@ -43,3 +43,6 @@ brew install ctop
 # awscli
 brew install awscli
 
+# http_load
+brew install http_load
+
