@@ -9,6 +9,9 @@ if ! [ -x "$(command -v brew)" ]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# brew cask extension:
+brew tap homebrew/cask-versions
+
 # vim
 brew install vim
 

@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
-[[ -f $HOME/.zshrc-private ]] && source $HOME/.zshrc-private
+[[ -f $HOME/.zshrc-private ]] && . $HOME/.zshrc-private
 
 ZSH_THEME="shyam"
 
@@ -96,3 +96,4 @@ alias dockerrestart='killall Docker && open /Applications/Docker.app'
 
 export NVM_DIR="/home/shabarakada/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
