@@ -106,6 +106,7 @@ endif
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
 map <C-l> :ccl<CR>
+map <C-w> :set wrap!<CR>
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
