@@ -59,6 +59,7 @@ plugins=(
   git
   last-working-dir
   docker-compose
+  common-aliases
 )
 
 source $ZSH/oh-my-zsh.sh
