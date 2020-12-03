@@ -46,3 +46,7 @@ brew install awscli
 # http_load
 brew install http_load
 
+# aws-okta-keyman
+brew tap nathan-v/aws-okta-keyman
+brew install aws_okta_keyman
+
