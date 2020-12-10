@@ -60,6 +60,7 @@ plugins=(
   last-working-dir
   docker-compose
   common-aliases
+  mvn
 )
 
 source $ZSH/oh-my-zsh.sh
