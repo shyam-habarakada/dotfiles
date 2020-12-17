@@ -7,7 +7,7 @@ BACKUP_DIR=~/.dotfiles.backup
 TIMESTAMP=$(date +"%Y%m%d%H%M")
 
 # list dotfiles to install
-declare -a FILES=("bashrc" "vimrc" "vim" "screenrc" "zshrc" "oh-my-zsh-custom")
+declare -a FILES=("bashrc" "vimrc" "vim" "screenrc" "zshrc" "oh-my-zsh-custom" "gitconfig")
 
 mkdir -p $BACKUP_DIR
 
@@ -22,4 +22,3 @@ if [ ! -f ~/.bash_profile ]; then
   echo "Installing minimal .bash_profile"
   cp $DOTFILES_DIR/bash_profile ~/.bash_profile
 fi
-
