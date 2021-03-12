@@ -93,14 +93,11 @@ alias ctop="ctop -a -i"
 # https://gist.github.com/evanscottgray/8571828#gistcomment-2594902
 alias dcpurge='docker ps -q | xargs docker stop ; docker system prune -a'
 
-# https://forums.docker.com/t/restart-docker-from-command-line/9420/4
-alias dockerrestart='killall Docker && open /Applications/Docker.app'
-
 # more git aliases
 alias gundo="git reset HEAD~1"
 alias grecommit="git commit --amend"
 alias gconflicts="git diff --name-only --diff-filter=U"
-alias gdtool="git difftool"
+alias gd="git difftool"
 
 # nvm
 export NVM_DIR="/home/shabarakada/.nvm"

@@ -27,3 +27,5 @@
 [user]
   name = shyam-habarakada
   email = shyam.habarakada@smartsheet.com
+[pull]
+	rebase = false
