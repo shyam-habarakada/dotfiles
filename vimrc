@@ -84,7 +84,6 @@ colorscheme solarized
 " Override CursorLineNr
 hi CursorLineNr ctermbg=Cyan ctermfg=White
 
-
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
   " bind \ (backward slash) to grep shortcut
@@ -106,7 +105,11 @@ endif
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
 map <C-l> :ccl<CR>
-map <C-w> :set wrap!<CR>
+map <C-t><C-w> :set wrap!<CR>
+map <C-t>w :set wrap!<CR>
+
+" settings and shortcuts for vim splits
+set splitright
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
