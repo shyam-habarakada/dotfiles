@@ -1,0 +1,11 @@
+log/
+logs/
+tmp/
+vendor/
+node_modules/
+target/
+*.tmp
+.jscache
+*.swp
+.DS_Store
+

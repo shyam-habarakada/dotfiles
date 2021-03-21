@@ -116,6 +116,7 @@ set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*.zip,*~,log/**,tmp/**,*.log,.git/**
 set wildignore+=**/source_maps/**
 set wildignore+=/usr/local/share/vim/**
+set wildignore+=**/log/**/*.jsonl
 
 autocmd BufWritePre * :%s/\s\+$//e
 
