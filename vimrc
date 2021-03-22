@@ -11,7 +11,7 @@ if has("mouse")
   set mouse=a
 endif
 
-fu! CustomFoldText()
+function! CustomFoldText()
   "get first non-blank line
   let fs = v:foldstart
   while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
@@ -29,7 +29,7 @@ fu! CustomFoldText()
   let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
   let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
-endf
+endfunction
 
 set nofoldenable
 set foldmethod=syntax
@@ -101,10 +101,21 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix'))
+    vertical copen
+  else
+    cclose
+  endif
+endfunction
+
+
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
+map <silent> <C-l> :call ToggleQuickFix()<cr>
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
-map <C-l> :ccl<CR>
+
+" shortcuts for toggling text wrap
 map <C-t><C-w> :set wrap!<CR>
 map <C-t>w :set wrap!<CR>
 
