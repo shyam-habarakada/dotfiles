@@ -50,3 +50,5 @@ brew install http_load
 brew tap nathan-v/aws-okta-keyman
 brew install aws_okta_keyman
 
+brew install ansible
+
