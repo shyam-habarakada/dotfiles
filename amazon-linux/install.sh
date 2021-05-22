@@ -7,7 +7,7 @@ BACKUP_DIR=~/.dotfiles.backup
 TIMESTAMP=$(date +"%Y%m%d%H%M")
 
 # list dotfiles to install
-declare -a FILES=("vimrc" "vim" "screenrc" "agignore")
+declare -a FILES=("vimrc" "vim" "agignore")
 
 mkdir -p $BACKUP_DIR
 
