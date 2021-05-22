@@ -1,0 +1,2 @@
+alias flushdns='sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache'
+alias ctop='ctop -a -i'

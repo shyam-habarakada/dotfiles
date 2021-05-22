@@ -1,0 +1,30 @@
+DIR=Ax
+SYM_LINK=fx
+SOCKET=xx
+PIPE=xx
+EXE=ex
+BLOCK_SP=xx
+CHAR_SP=xx
+EXE_SUID=fx
+EXE_GUID=fx
+DIR_STICKY=dx
+DIR_WO_STICKY=xx
+
+# https://apple.stackexchange.com/a/152791
+# ls --colors depends on having installed coreutils via brew
+export CLICOLOR=1
+
+export TERM=xterm-256color
+
+function color_my_prompt {
+    local __cur_location="\[\033[01;34m\]\w"
+    local __git_branch_color="\[\033[31m\]"
+    local __git_branch='`command git branch 2> /dev/null | /usr/bin/grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    local __machine_name_color="\[\033[36m\]"
+    local __docker_machine_name='`if [ $DOCKER_MACHINE_NAME ]; then echo "/$DOCKER_MACHINE_NAME/ "; fi`'
+    local __prompt_tail="\[\033[35m\]$"
+    local __last_color="\[\033[00m\]"
+    export PS1="$__cur_location $__git_branch_color$__git_branch$__machine_name_color$__docker_machine_name$__prompt_tail$__last_color "
+}
+color_my_prompt
+

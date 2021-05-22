@@ -1,0 +1,31 @@
+[core]
+  autocrlf = input
+  editor = vim
+
+[color]
+    ui = true
+    branch = auto
+    diff = auto
+    status = auto
+
+[diff]
+  tool = vimdiff
+
+[difftool]
+  prompt = false
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  rocess = git-lfs filter-process
+  required = true
+  process = git-lfs filter-process
+
+[push]
+  default = current
+
+[user]
+  name = shyam-habarakada
+  email = shyam.habarakada@smartsheet.com
+[pull]
+	rebase = false
