@@ -72,8 +72,6 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
 let g:ctrlp_working_path_mode = 'r'
 
-call pathogen#infect()
-
 syntax enable
 
 set background=light
