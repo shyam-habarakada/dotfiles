@@ -1,19 +1,13 @@
 #!/bin/bash
 
-DOTFILES_DIR=~/.dotfiles
-BACKUP_DIR=~/.dotfiles.backup
+set -e
 
-# timestamp for backup copies of dotfiles
-TIMESTAMP=$(date +"%Y%m%d%H%M")
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-# list dotfiles to install
-declare -a FILES=("vimrc" "vim" "agignore")
+# install vim components
+ln -sf $DIR/../vim ~/.vim
+ln -sf $DIR/../vim/vimrc ~/.vimrc
 
-mkdir -p $BACKUP_DIR
-
-for file in "${FILES[@]}"; do
-  mv ~/.$file $BACKUP_DIR/.$file.$TIMESTAMP
-  echo "Installing $file"
-  ln -s $DOTFILES_DIR/$file ~/.$file
-done
+# install .agignore
+ln -sf $DIR/agignore ~/.agignore
 
