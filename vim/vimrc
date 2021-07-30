@@ -107,11 +107,12 @@ function! ToggleQuickFix()
   endif
 endfunction
 
+" shortcut for toggling quickfix window
+map <silent> <C-l> :call ToggleQuickFix()<cr>
 
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
-map <silent> <C-l> :call ToggleQuickFix()<cr>
-map <C-j> :cn<CR>
-map <C-k> :cp<CR>
+nnoremap <C-j> :cn<CR>
+nnoremap <C-k> :cp<CR>
 
 " shortcuts for toggling text wrap
 map <C-t><C-w> :set wrap!<CR>
