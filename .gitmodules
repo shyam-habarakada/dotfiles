@@ -16,3 +16,6 @@
 [submodule "vim/pack/plugins/start/vim-markdown"]
 	path = vim/pack/plugins/start/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim/pack/plugins/start/vim-startify"]
+	path = vim/pack/plugins/start/vim-startify
+	url = https://github.com/mhinz/vim-startify.git
