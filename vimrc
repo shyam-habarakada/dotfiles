@@ -102,10 +102,27 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix'))
+    vertical copen
+  else
+    cclose
+  endif
+endfunction
+
+
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
+map <silent> <C-l> :call ToggleQuickFix()<cr>
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
-map <C-l> :ccl<CR>
+
+" shortcuts for toggling text wrap
+map <C-t><C-w> :set wrap!<CR>
+map <C-t>w :set wrap!<CR>
+
+" settings and shortcuts for vim splits
+set splitright
+
 map <C-w> :set wrap!<CR>
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
