@@ -123,8 +123,6 @@ map <C-t>w :set wrap!<CR>
 " settings and shortcuts for vim splits
 set splitright
 
-map <C-t> :set wrap!<CR>
-
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*.zip,*~,log/**,tmp/**,*.log,.git/**
