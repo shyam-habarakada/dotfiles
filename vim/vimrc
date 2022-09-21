@@ -11,7 +11,7 @@ if has("mouse")
   set mouse=a
 endif
 
-function! CustomFoldText()
+fu! CustomFoldText()
   "get first non-blank line
   let fs = v:foldstart
   while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
@@ -29,7 +29,7 @@ function! CustomFoldText()
   let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
   let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
-endfunction
+endf
 
 set nofoldenable
 set foldmethod=syntax
@@ -72,6 +72,8 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
 let g:ctrlp_working_path_mode = 'r'
 
+call pathogen#infect()
+
 syntax enable
 
 set background=light
@@ -81,6 +83,7 @@ colorscheme solarized
 
 " Override CursorLineNr
 hi CursorLineNr ctermbg=Cyan ctermfg=White
+
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
@@ -107,12 +110,18 @@ function! ToggleQuickFix()
   endif
 endfunction
 
-" shortcut for toggling quickfix window
-map <silent> <C-l> :call ToggleQuickFix()<cr>
 
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
-nnoremap <C-j> :cn<CR>
-nnoremap <C-k> :cp<CR>
+map <silent> <C-l> :call ToggleQuickFix()<cr>
+map <C-p> :cp<CR>
+map <C-n> :cn<CR>
+
+" only highlight the current line on the active split (window)
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
 
 " shortcuts for toggling text wrap
 map <C-t><C-w> :set wrap!<CR>
@@ -123,7 +132,7 @@ set splitright
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*.zip,*~,*/log/*,*/tmp/*.*,*.log,*/.git/*
+set wildignore=*.o,*.obj,*.zip,*~,log/**,tmp/**,*.log,.git/**
 set wildignore+=**/source_maps/**
 set wildignore+=/usr/local/share/vim/**
 
