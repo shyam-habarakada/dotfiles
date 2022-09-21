@@ -113,8 +113,15 @@ endfunction
 
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
 map <silent> <C-l> :call ToggleQuickFix()<cr>
-map <C-j> :cn<CR>
-map <C-k> :cp<CR>
+map <C-p> :cp<CR>
+map <C-n> :cn<CR>
+
+" only highlight the current line on the active split (window)
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
 
 " shortcuts for toggling text wrap
 map <C-t><C-w> :set wrap!<CR>
