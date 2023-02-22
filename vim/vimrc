@@ -63,7 +63,8 @@ set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 " Requires https://github.com/powerline/fonts
 " airline now works without these custom fonts
 " let g:airline_powerline_fonts = 1
-" let g:airline_theme = "solarized"
+
+let g:airline_theme = 'solarized'
 
 " For airline
 set laststatus=2
@@ -78,8 +79,6 @@ syntax enable
 
 set background=light
 set cursorline
-
-colorscheme solarized
 
 " Override CursorLineNr
 hi CursorLineNr ctermbg=Cyan ctermfg=White
