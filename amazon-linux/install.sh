@@ -11,3 +11,7 @@ ln -sf $DIR/../vim/vimrc ~/.vimrc
 # install .agignore
 ln -sf $DIR/agignore ~/.agignore
 
+# pull all vim plugin submodules
+pushd $DIR/../vim
+git submodule update --init --recursive
+popd
