@@ -1,3 +1,9 @@
 [submodule "shell/osx-terminal.app-colors-solarized"]
 	path = shell/osx-terminal.app-colors-solarized
 	url = git@github.com:tomislav/osx-terminal.app-colors-solarized.git
+[submodule "vim/pack/plugins/start/vim-airline"]
+	path = vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim/pack/plugins/start/vim-airline-themes"]
+	path = vim/pack/plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git

@@ -77,8 +77,6 @@ syntax enable
 set background=light
 set cursorline
 
-colorscheme solarized
-
 " Override CursorLineNr
 hi CursorLineNr ctermbg=Cyan ctermfg=White
 
