@@ -62,8 +62,8 @@ set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 
 " Requires https://github.com/powerline/fonts
 " airline now works without these custom fonts
-" let g:airline_powerline_fonts = 1
-" let g:airline_theme = "solarized"
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "solarized"
 
 " For airline
 set laststatus=2
@@ -72,14 +72,10 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
 let g:ctrlp_working_path_mode = 'r'
 
-call pathogen#infect()
-
 syntax enable
 
 set background=light
 set cursorline
-
-colorscheme solarized
 
 " Override CursorLineNr
 hi CursorLineNr ctermbg=Cyan ctermfg=White
