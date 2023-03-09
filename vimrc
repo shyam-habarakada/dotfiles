@@ -74,6 +74,7 @@ syntax enable
 
 set background=light
 set cursorline
+set fillchars+=vert:\  " Keep this comment so vim wont trim the trailing space
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
