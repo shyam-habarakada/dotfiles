@@ -60,13 +60,11 @@ set path=**
 set list
 set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 
-" Requires https://github.com/powerline/fonts
-" airline now works without these custom fonts
 let g:airline_powerline_fonts = 1
-let g:airline_theme = "solarized"
+let g:airline_theme = "base16_eighties"
 
-" For airline
-set laststatus=2
+hi CursorLineNr ctermbg=Cyan ctermfg=White
+hi LineNr ctermfg=grey
 
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
@@ -76,9 +74,6 @@ syntax enable
 
 set background=light
 set cursorline
-
-" Override CursorLineNr
-hi CursorLineNr ctermbg=Cyan ctermfg=White
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
