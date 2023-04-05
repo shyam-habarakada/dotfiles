@@ -61,21 +61,36 @@ set list
 set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 
 set background=light
-set cursorline
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "base16_eighties"
 
-hi CursorLineNr ctermbg=Cyan ctermfg=White
+" Cterm Colors https://gist.github.com/meskarune/1db61ed782143c4dc0f35dbfc7f7a336
+
+hi CursorLine cterm=none ctermbg=LightGray
+hi CursorLineNr cterm=none ctermbg=LightGray
+hi CursorColumn cterm=none ctermbg=LightGray
 hi LineNr ctermfg=grey
+hi Search ctermbg=LightBlue ctermfg=DarkGray
+
+" remove noise from window separator
+set fillchars-=vert:\|
+hi VertSplit ctermfg=LightGray
+
+if has('nvim')
+  " neovim appears to default insert mode to a line cursor (annoying)
+  set guicursor=n-v-i-c:block
+endif
+
+syntax enable
+
 
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
 let g:ctrlp_working_path_mode = 'r'
 
-syntax enable
 
-" The Silver Searcher and quickfix tweaks
+" The Silver Searcher :and quickfix tweaks
 if executable('ag')
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
@@ -92,6 +107,7 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
     vertical copen
@@ -99,7 +115,6 @@ function! ToggleQuickFix()
     cclose
   endif
 endfunction
-
 
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
 map <silent> <C-l> :call ToggleQuickFix()<cr>
@@ -112,6 +127,9 @@ augroup BgHighlight
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
 augroup END
+
+" highlight current line by default
+set cul
 
 " shortcuts for toggling text wrap
 map <C-t><C-w> :set wrap!<CR>
