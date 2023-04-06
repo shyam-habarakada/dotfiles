@@ -59,6 +59,7 @@ plugins=(
   git
   last-working-dir
   docker-compose
+  ag
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -96,3 +97,8 @@ alias dockerrestart='killall Docker && open /Applications/Docker.app'
 
 export NVM_DIR=$(brew --prefix nvm)
 source $(brew --prefix nvm)/nvm.sh
+
+# make python3 the default
+alias python=python3
+
+
