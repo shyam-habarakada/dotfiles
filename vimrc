@@ -66,9 +66,11 @@ set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "base16_eighties"
 
-hi CursorLineNr ctermbg=Cyan ctermfg=White
-hi LineNr ctermfg=grey
-hi Search ctermfg=237 ctermbg=114 guifg=#393939 guibg=#99cc99
+ hi CursorLine cterm=none ctermbg=LightGray
+ hi CursorLineNr cterm=none ctermbg=LightGray
+ hi CursorColumn cterm=none ctermbg=LightGray
+ hi LineNr ctermfg=grey
+ hi Search ctermbg=LightBlue ctermfg=DarkGray
 
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
