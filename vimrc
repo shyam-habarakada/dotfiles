@@ -44,6 +44,9 @@ au FileType xml setlocal foldmethod=syntax
 autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
 autocmd InsertLeave * let &l:foldmethod=w:last_fdm
 
+autocmd InsertEnter * :set nohlsearch
+autocmd InsertLeave * :set hlsearch
+
 set tabstop=2
 set softtabstop=2
 set expandtab
@@ -65,6 +68,7 @@ let g:airline_theme = "base16_eighties"
 
 hi CursorLineNr ctermbg=Cyan ctermfg=White
 hi LineNr ctermfg=grey
+hi Search ctermfg=237 ctermbg=114 guifg=#393939 guibg=#99cc99
 
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
