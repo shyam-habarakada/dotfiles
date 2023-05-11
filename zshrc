@@ -1,10 +1,11 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/opt/apps/oh-my-zsh
+export ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 [[ -f $HOME/.zshrc-private ]] && . $HOME/.zshrc-private
 
-ZSH_THEME="shyam"
+ZSH_THEME="smartypants"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,15 +54,9 @@ ZSH_THEME="shyam"
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# Example format: plugins=(git docker-compose mvn smartsheet common-aliases last-working-dir)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  last-working-dir
-  docker-compose
-  common-aliases
-  mvn
-)
+plugins=(git docker-compose mvn common-aliases last-working-dir dotenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,3 +98,49 @@ alias gd="git difftool"
 export NVM_DIR="/home/shabarakada/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# jinja and other pip binaries
+export PATH=$PATH:~/.local/bin
+# BEGIN ANSIBLE MANAGED BLOCK
+echo ""
+echo "      ╔═╗┌┬┐┌─┐┬─┐┌┬┐┌─┐┬ ┬┌─┐┌─┐┌┬┐";
+echo "      ╚═╗│││├─┤├┬┘ │ └─┐├─┤├┤ ├┤  │ ";
+echo "      ╚═╝┴ ┴┴ ┴┴└─ ┴ └─┘┴ ┴└─┘└─┘ ┴ ";
+echo ""
+echo "Welcome to smartsheet cloud (EC2) build environment"
+# END ANSIBLE MANAGED BLOCK
+# BEGIN ANSIBLE MANAGED BLOCK (personalized.yaml)
+# Short host identifier for smartypants zsh theme. This string will
+# be used in place of the default hostname prefix when you are in an
+# interactive shell. If you have multiple backend hosts, consider
+# using a host specific variable in your hosts file so this is a unique
+# identifier per remote host.
+export HOST_PREFIX=D2\|
+
+# override default git diff alias
+alias gd='git difftool'
+
+#override default git log oneline alias
+alias glo='git log --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+
+# app-core build (acb) helper, a wrapper around the app-core build script
+# usage,
+#   acb -f - run a full build.
+#   acb -h - help on other options
+function acb() {
+  current_directory_saved=`pwd`
+  cd $GIT_APP_CORE
+
+  case $1 in
+  lint)
+    pushd dev2/web/javascript/legacyApp
+    npm run lint-ts && npm run build:ts
+    popd
+    ;;
+  *)
+    ./src/main/build/build.sh $@
+    ;;
+  esac
+
+  cd $current_directory_saved
+}
+# END ANSIBLE MANAGED BLOCK (personalized.yaml)
