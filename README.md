@@ -11,6 +11,7 @@
 * `. install-cli-tools.sh`
 * `. install-desktop-apps.sh`
 * `. install.sh`
+* `. install-cli-tools-amazon-linux.sh`
 
 ## osx terminal solarized theme installation
 
