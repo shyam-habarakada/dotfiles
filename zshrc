@@ -95,7 +95,7 @@ alias gconflicts="git diff --name-only --diff-filter=U"
 alias gd="git difftool"
 
 # nvm
-export NVM_DIR="/home/shabarakada/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # jinja and other pip binaries
