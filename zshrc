@@ -144,3 +144,4 @@ function acb() {
   cd $current_directory_saved
 }
 # END ANSIBLE MANAGED BLOCK (personalized.yaml)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
