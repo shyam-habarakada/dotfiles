@@ -56,7 +56,7 @@ ZSH_THEME="smartypants"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git docker-compose mvn smartsheet common-aliases last-working-dir)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker-compose mvn common-aliases last-working-dir dotenv)
+plugins=(git docker-compose mvn common-aliases last-working-dir dotenv aws)
 
 source $ZSH/oh-my-zsh.sh
 
