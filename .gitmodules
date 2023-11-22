@@ -13,3 +13,6 @@
 [submodule "vim/pack/plugins/start/vim-startify"]
 	path = vim/pack/plugins/start/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
+[submodule "vim/pack/github/start/copilot.vim"]
+	path = vim/pack/github/start/copilot.vim
+	url = https://github.com/github/copilot.vim
