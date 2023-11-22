@@ -57,7 +57,6 @@ ZSH_THEME="shyam"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  last-working-dir
   docker-compose
   ag
 )
@@ -101,4 +100,5 @@ source $(brew --prefix nvm)/nvm.sh
 # make python3 the default
 alias python=python3
 
-
+# on startup..
+cd $HOME/dev

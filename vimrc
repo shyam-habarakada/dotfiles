@@ -44,6 +44,9 @@ au FileType xml setlocal foldmethod=syntax
 autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
 autocmd InsertLeave * let &l:foldmethod=w:last_fdm
 
+autocmd InsertEnter * :set nohlsearch
+autocmd InsertLeave * :set hlsearch
+
 set tabstop=2
 set softtabstop=2
 set expandtab
