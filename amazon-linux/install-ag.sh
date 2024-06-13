@@ -5,6 +5,6 @@ cd /opt/apps
 sudo git clone https://github.com/ggreer/the_silver_searcher.git
 
 cd the_silver_searcher
-./build.sh
+sudo ./build.sh
 sudo make install
 
