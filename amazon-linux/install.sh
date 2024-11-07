@@ -15,3 +15,7 @@ ln -sf $DIR/agignore ~/.agignore
 pushd $DIR/../vim
 git submodule update --init --recursive
 popd
+
+# install other CLI tools
+sudo yum install -y jq
+
