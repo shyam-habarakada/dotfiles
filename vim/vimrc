@@ -83,7 +83,10 @@ set cursorline
 
 " Override CursorLineNr
 hi CursorLineNr ctermbg=Cyan ctermfg=White
+hi CursorLine cterm=none gui=none term=none guibg=LightGrey
 
+" Override Search
+hi Search term=reverse ctermbg=81 gui=undercurl guisp=Blue
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
