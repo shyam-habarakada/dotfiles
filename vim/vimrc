@@ -88,6 +88,9 @@ hi CursorLine cterm=none gui=none term=none guibg=LightGrey
 " Override Search
 hi Search term=reverse ctermbg=81 gui=undercurl guisp=Blue
 
+" split pane border characters off
+hi VertSplit guifg=LightGray guibg=LightGray ctermfg=LightGray ctermbg=LightGray
+
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
   " bind \ (backward slash) to grep shortcut
