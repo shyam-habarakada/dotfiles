@@ -19,3 +19,5 @@ popd
 # install other CLI tools
 sudo yum install -y jq
 
+# patch zshrc, if not already patched
+grep -qF "SHYAMRCPATCH" ~/.zshrc || cat $DIR/zshrc.patch >> ~/.zshrc
