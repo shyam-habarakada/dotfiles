@@ -102,3 +102,5 @@ alias python=python3
 # on startup..
 cd $HOME/dev
 
+export PATH="$HOME/.tgenv/bin:$PATH"
+export PATH="$HOME/.tfenv/bin:$PATH"
