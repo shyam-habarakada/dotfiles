@@ -4,7 +4,7 @@ RC_FILE="$HOME/.zshrc"
 
 # Install tgenv
 if ! grep -q "tgenv" "$RC_FILE"; then
-  git clone https://github.com/cunymatthieu/tgenv.git ~tgenv
+  git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv
   echo 'export PATH="$HOME/.tgenv/bin:$PATH"' >> "$RC_FILE"
 else
   echo "tgenv already installed"
