@@ -58,7 +58,6 @@ ZSH_THEME="shyam"
 plugins=(
   git
   docker-compose
-  ag
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,3 +101,4 @@ alias python=python3
 
 # on startup..
 cd $HOME/dev
+
