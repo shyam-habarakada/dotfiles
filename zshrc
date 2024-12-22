@@ -99,6 +99,8 @@ source $(brew --prefix nvm)/nvm.sh
 # make python3 the default
 alias python=python3
 
+# alias gd=git difftool
+
 # on startup..
 cd $HOME/dev
 

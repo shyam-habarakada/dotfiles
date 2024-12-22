@@ -1,8 +1,8 @@
-brew cask install --appdir="/Applications" github
-brew cask install --appdir="/Applications" textmate
-brew cask install --appdir="/Applications" fantastical
-brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" 1password
-brew cask install --appdir="/Applications" keepingyouawake
-brew cask install --appdir="/Applications" postman
-brew cask install --appdir="/Applications" xquartz
+brew install --cask --appdir="/Applications" github
+brew install --cask --appdir="/Applications" textmate
+brew install --cask --appdir="/Applications" fantastical
+# brew install --cask --appdir="/Applications" google-chrome
+# brew install --cask --appdir="/Applications" 1password
+brew install --cask --appdir="/Applications" keepingyouawake
+brew install --cask --appdir="/Applications" postman
+# brew install --cask --appdir="/Applications" xquartz
