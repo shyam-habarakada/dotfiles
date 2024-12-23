@@ -106,3 +106,4 @@ cd $HOME/dev
 
 export PATH="$HOME/.tgenv/bin:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
