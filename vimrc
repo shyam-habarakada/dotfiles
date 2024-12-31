@@ -86,7 +86,8 @@ if has('nvim')
 endif
 
 syntax enable
-
+set background=light
+colorscheme solarized
 
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
