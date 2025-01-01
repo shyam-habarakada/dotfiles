@@ -58,6 +58,7 @@ ZSH_THEME="shyam"
 plugins=(
   git
   docker-compose
+  last-working-dir
 )
 
 source $ZSH/oh-my-zsh.sh
