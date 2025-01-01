@@ -53,6 +53,7 @@ set expandtab
 set shiftwidth=2
 set autoindent
 set number
+set relativenumber
 set autoread
 set incsearch
 set nowrap
