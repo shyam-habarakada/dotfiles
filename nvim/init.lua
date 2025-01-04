@@ -28,12 +28,28 @@ require("lazy").setup({
       "ctrlpvim/ctrlp.vim"
     },
     {
+      "goolord/alpha-nvim",
+      -- dependencies = { 'echasnovski/mini.icons' },
+      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      config = function()
+        local startify = require("alpha.themes.startify")
+        -- available: devicons, mini, default is mini
+        -- if provider not loaded and enabled is true, it will try to use another provider
+        startify.file_icons.provider = "devicons"
+        require("alpha").setup(
+          startify.config
+        )
+      end,
+    },
+    {
       "Tsuzat/NeoSolarized.nvim",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-          vim.cmd [[ colorscheme NeoSolarized ]]
-        end
+      lazy = false, -- make sure we load this during startup if it is your main colorscheme
+      priority = 1000, -- make sure to load this before all the other start plugins
+      config = function()
+        vim.cmd [[ colorscheme NeoSolarized ]]
+        -- Turn off italics
+        vim.g.neosolarized_italic = 0
+      end
     },
     {
         'nvim-lualine/lualine.nvim',
@@ -47,19 +63,32 @@ require("lazy").setup({
       },
       build = "make tiktoken", -- Only on MacOS or Linux
       opts = {
-				 -- See Configuration section for options
+        -- See Configuration section for options
       },
       -- See Commands section for default commands if you want to lazy load on them
     }
   },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "solarized" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  install = {
+    -- colorscheme that will be used when installing plugins.
+    colorscheme = { "solarized" }
+  },
+  checker = {
+    -- automatically check for plugin updates
+    enabled = true
+  },
 })
 
 require('lualine').setup()
 
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set expandtab")
+vim.cmd("set shiftwidth=2")
+vim.cmd("set autoindent")
+vim.cmd("set autoread")
+vim.cmd("set incsearch")
+vim.cmd("set nowrap")
+vim.cmd("set backspace=indent,eol,start")
+vim.cmd("set path=**")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
