@@ -1,3 +1,10 @@
 **/.DS_Store
 **/*.swp
 .netrwhist
+
+# Ignore directories created by vim-plug
+vim/autoload
+vim/plugged
+
+
+

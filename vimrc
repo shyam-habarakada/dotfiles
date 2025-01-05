@@ -1,3 +1,37 @@
+" -----------------------------------------------------------------------------
+" vim-plug setup and configuration
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 0
+  let g:airline_theme = "solarized"
+
+Plug 'ctrlpvim/ctrlp.vim'
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_cmd = 'CtrlPMRU'
+  let g:ctrlp_root_markers = '.git'
+
+Plug 'mhinz/vim-startify'
+
+Plug 'github/copilot.vim'
+  let g:copilot#enabled = 1
+
+call plug#end()
+
+" end of vim-plug configuration
+" -----------------------------------------------------------------------------
+
 set nocompatible
 set nobackup
 
@@ -66,9 +100,6 @@ set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 
 set background=light
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "base16_eighties"
-
 " Cterm Colors https://gist.github.com/meskarune/1db61ed782143c4dc0f35dbfc7f7a336
 
 hi CursorLine cterm=none ctermbg=LightGray
@@ -89,11 +120,6 @@ endif
 syntax enable
 set background=light
 colorscheme solarized
-
-let g:ctrlp_cmd = 'CtrlPMRU'
-let g:ctrlp_root_markers = '.git'
-let g:ctrlp_working_path_mode = 'r'
-
 
 " The Silver Searcher :and quickfix tweaks
 if executable('ag')
