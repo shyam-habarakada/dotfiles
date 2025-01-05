@@ -24,6 +24,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'mhinz/vim-startify'
 
+Plug 'justinmk/vim-sneak'
+
 Plug 'github/copilot.vim'
   let g:copilot#enabled = 1
 
@@ -66,8 +68,8 @@ fu! CustomFoldText()
 endf
 
 set nofoldenable
-set foldmethod=syntax
-set foldnestmax=4
+set foldmethod=indent
+set foldnestmax=5
 set foldtext=CustomFoldText()
 
 let g:xml_syntax_folding=1
@@ -154,9 +156,9 @@ map <C-n> :cn<CR>
 
 " only highlight the current line on the active split (window)
 augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
+  autocmd!
+  autocmd WinEnter * set cul
+  autocmd WinLeave * set nocul
 augroup END
 
 " highlight current line by default
