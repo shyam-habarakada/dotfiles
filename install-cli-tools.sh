@@ -18,6 +18,10 @@ brew install bash-completion
 # better git
 brew install git
 
+# text interface to git
+# https://jonas.github.io/tig/
+brew install tig
+
 # github CLI
 brew install hub
 

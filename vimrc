@@ -26,6 +26,10 @@ Plug 'mhinz/vim-startify'
 
 Plug 'justinmk/vim-sneak'
 
+Plug 'airblade/vim-gitgutter'
+
+Plug 'iberianpig/tig-explorer.vim'
+
 Plug 'github/copilot.vim'
   let g:copilot#enabled = 1
 
@@ -93,14 +97,16 @@ set relativenumber
 set autoread
 set incsearch
 set nowrap
-set backspace=indent,eol,start
+set backspace=indent,eol,start " This is a test.
 set path=**
 
 " Tabs and trailing spaces
 set list
 set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 
+syntax enable
 set background=light
+colorscheme solarized
 
 " Cterm Colors https://gist.github.com/meskarune/1db61ed782143c4dc0f35dbfc7f7a336
 
@@ -108,6 +114,7 @@ hi CursorLine cterm=none ctermbg=LightGray
 hi CursorLineNr cterm=none ctermbg=LightGray
 hi CursorColumn cterm=none ctermbg=LightGray
 hi LineNr ctermfg=grey
+hi SignColumn cterm=none ctermbg=LightGray
 hi Search ctermbg=LightBlue ctermfg=DarkGray
 
 " remove noise from window separator
@@ -118,10 +125,6 @@ if has('nvim')
   " neovim appears to default insert mode to a line cursor (annoying)
   set guicursor=n-v-i-c:block
 endif
-
-syntax enable
-set background=light
-colorscheme solarized
 
 " The Silver Searcher :and quickfix tweaks
 if executable('ag')
