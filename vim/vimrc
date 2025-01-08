@@ -1,3 +1,44 @@
+" -----------------------------------------------------------------------------
+" vim-plug setup and configuration
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 0
+  let g:airline_theme = "solarized"
+
+Plug 'ctrlpvim/ctrlp.vim'
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_cmd = 'CtrlPMRU'
+  let g:ctrlp_root_markers = '.git'
+
+Plug 'mhinz/vim-startify'
+
+Plug 'justinmk/vim-sneak'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'iberianpig/tig-explorer.vim'
+
+Plug 'github/copilot.vim'
+  let g:copilot#enabled = 1
+
+call plug#end()
+
+" end of vim-plug configuration
+" -----------------------------------------------------------------------------
+
+
 set nocompatible
 set nobackup
 
@@ -11,7 +52,7 @@ if has("mouse")
   set mouse=a
 endif
 
-fu! CustomFoldText()
+function! CustomFoldText()
   "get first non-blank line
   let fs = v:foldstart
   while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
@@ -29,7 +70,7 @@ fu! CustomFoldText()
   let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
   let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
-endf
+endfunction
 
 set nofoldenable
 set foldmethod=syntax
@@ -43,6 +84,9 @@ au FileType xml setlocal foldmethod=syntax
 " leaving insert mode. Foldmethod is local to the window.
 autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
 autocmd InsertLeave * let &l:foldmethod=w:last_fdm
+
+autocmd InsertEnter * :set nohlsearch
+autocmd InsertLeave * :set hlsearch
 
 set tabstop=2
 set softtabstop=2
@@ -60,36 +104,24 @@ set path=**
 set list
 set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 
-" Requires https://github.com/powerline/fonts
-" airline now works without these custom fonts
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "base16_eighties"
 
-let g:airline_theme = 'solarized'
-
-" For airline
-set laststatus=2
+ hi CursorLine cterm=none ctermbg=LightGray
+ hi CursorLineNr cterm=none ctermbg=LightGray
+ hi CursorColumn cterm=none ctermbg=LightGray
+ hi LineNr ctermfg=grey
+ hi Search ctermbg=LightBlue ctermfg=DarkGray
 
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_root_markers = '.git'
 let g:ctrlp_working_path_mode = 'r'
 
-" Vim 8+ has native package management. Switch to that and disable pathogen
-" call pathogen#infect()
-
 syntax enable
 
 set background=light
 set cursorline
-
-" Override CursorLineNr
-hi CursorLineNr ctermbg=Cyan ctermfg=White
-hi CursorLine cterm=none gui=none term=none guibg=LightGrey
-
-" Override Search
-hi Search term=reverse ctermbg=81 gui=undercurl guisp=Blue
-
-" split pane border characters off
-hi VertSplit guifg=LightGray guibg=LightGray ctermfg=LightGray ctermbg=LightGray
+set fillchars+=vert:\  " Keep this comment so vim wont trim the trailing space
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
@@ -119,15 +151,8 @@ endfunction
 
 " shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
 map <silent> <C-l> :call ToggleQuickFix()<cr>
-map <C-p> :cp<CR>
-map <C-n> :cn<CR>
-
-" only highlight the current line on the active split (window)
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
-augroup END
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
 
 " shortcuts for toggling text wrap
 map <C-t><C-w> :set wrap!<CR>
@@ -138,7 +163,7 @@ set splitright
 
 set wildmode=longest:full   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*.zip,*~,log/**,tmp/**,*.log,.git/**
+set wildignore=*.o,*.obj,*.zip,*~,*/log/*,*/tmp/*.*,*.log,*/.git/*
 set wildignore+=**/source_maps/**
 set wildignore+=/usr/local/share/vim/**
 
