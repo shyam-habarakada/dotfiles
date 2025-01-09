@@ -6,7 +6,7 @@ xcode-select --install
 
 # install homebrew https://brew.sh/
 if ! [ -x "$(command -v brew)" ]; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # vim
@@ -17,6 +17,10 @@ brew install bash-completion
 
 # better git
 brew install git
+
+# text interface to git
+# https://jonas.github.io/tig/
+brew install tig
 
 # github CLI
 brew install hub
@@ -49,4 +53,6 @@ brew install http_load
 # aws-okta-keyman
 brew tap nathan-v/aws-okta-keyman
 brew install aws_okta_keyman
+
+brew install ansible
 

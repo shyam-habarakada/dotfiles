@@ -1,0 +1,11 @@
+# Cleanup leftover images, volumes and containers.
+function docker-clean() {
+  docker rmi -f $(docker images -q -a -f dangling=true)
+  docker stop $(docker ps -a -q)
+  docker rm $(docker ps -a -q)
+  docker volume rm $(docker volume ls -f dangling=true -q)
+}
+
+alias dc=docker-compose
+alias dm=docker-machine
+
