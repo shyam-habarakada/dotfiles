@@ -1,7 +1,7 @@
 # short identifier in place of the full hostname
 HOST_MONICKER=D9
 
-PROMPT='$HOST_MONICKER %F{green}%3~ $(git_prompt_info)%B%(!.%F{red}.%F{blue})%f%b'
+PROMPT='%B%F{blue}$HOST_MONICKER%b %F{green}%3~ $(git_prompt_info)%B%(!.%F{red}.%F{blue})%f%b'
 RPS1='%(?..%B%F{red}%?%b ↵%f)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[yellow]%}("
