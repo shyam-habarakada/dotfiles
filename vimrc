@@ -94,6 +94,7 @@ set expandtab
 set shiftwidth=2
 set autoindent
 set number
+set relativenumber
 set autoread
 set incsearch
 set nowrap
@@ -110,6 +111,7 @@ let g:airline_theme = "base16_eighties"
  hi CursorLine cterm=none ctermbg=LightGray
  hi CursorLineNr cterm=none ctermbg=LightGray
  hi CursorColumn cterm=none ctermbg=LightGray
+ hi SignColumn cterm=none ctermbg=none
  hi LineNr ctermfg=grey
  hi Search ctermbg=LightBlue ctermfg=DarkGray
 
