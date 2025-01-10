@@ -15,18 +15,12 @@ fi
 # vim
 brew install vim
 
-# bash-eompletion
-brew install bash-completion
-
 # better git
 brew install git
 
 # text interface to git
 # https://jonas.github.io/tig/
 brew install tig
-
-# github CLI
-brew install hub
 
 # silver-searcher
 brew install the_silver_searcher
@@ -58,4 +52,6 @@ brew tap nathan-v/aws-okta-keyman
 brew install aws_okta_keyman
 
 brew install ansible
+
+brew install podman
 
