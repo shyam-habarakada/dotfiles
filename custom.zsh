@@ -1,5 +1,9 @@
-# short identifier in place of the full hostname
-HOST_MONICKER=D9
+# Allow overriding
+if [ -n "$SHORT_HOSTNAME" ]; then
+  HOST_MONICKER="$SHORT_HOSTNAME"
+else
+  HOST_MONICKER="${HOST%%.*}"
+fi
 
 PROMPT='%B%F{blue}$HOST_MONICKER%b %F{green}%3~ $(git_prompt_info)%B%(!.%F{red}.%F{blue})%f%b'
 RPS1='%(?..%B%F{red}%?%b ↵%f)'
