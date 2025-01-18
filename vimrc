@@ -21,12 +21,16 @@ Plug 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_cmd = 'CtrlPMRU'
   let g:ctrlp_root_markers = '.git'
+  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 
 Plug 'mhinz/vim-startify'
 
 Plug 'justinmk/vim-sneak'
 
 Plug 'airblade/vim-gitgutter'
+
+Plug 'zivyangll/git-blame.vim'
+  nnoremap <C-b> :GitBlame<CR>
 
 Plug 'iberianpig/tig-explorer.vim'
 
@@ -35,21 +39,56 @@ Plug 'github/copilot.vim'
 
 call plug#end()
 
+" Bindings to trigger plugin management
+nnoremap <leader>i :PlugInstall<CR>
+nnoremap <leader>c :PlugClean<CR>
+
 " end of vim-plug configuration
 " -----------------------------------------------------------------------------
 
 
-set nocompatible
-set nobackup
-
-"docker inotify issue workaround
-set backupcopy=yes
-
+set autoindent
+set autoread
+set background=light
+set backspace=indent,eol,start
+set backupcopy=yes " Docker inotify issue workaround
 set clipboard=unnamed
+set cursorline
+set expandtab
+set fillchars+=vert:\  " Keep this comment so vim wont trim the trailing space
+set foldmethod=syntax
+set foldnestmax=4
+set foldtext=CustomFoldText()
+set hlsearch
+set incsearch
+set list " Tabs and trailing spaces
+set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
+set nobackup
+set nocompatible
+set nofoldenable
+set nowrap
+set number
 set pastetoggle=<F2>
+set path=**
+set relativenumber
+set shiftwidth=2
+set softtabstop=2
+set splitright
+set tabstop=2
+set wildignore+=**/source_maps/**
+set wildignore+=/usr/local/share/vim/**
+set wildignore+=*.o,*.obj,*.zip,*~,*/log/*,*/tmp/*.*,*.log,*/.git/*
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildmode=longest:full   "make cmdline tab completion similar to bash
+
 
 if has("mouse")
   set mouse=a
+endif
+
+if $VIM_CRONTAB == "true"
+  set nobackup
+  set nowritebackup
 endif
 
 function! CustomFoldText()
@@ -72,11 +111,6 @@ function! CustomFoldText()
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endfunction
 
-set nofoldenable
-set foldmethod=syntax
-set foldnestmax=4
-set foldtext=CustomFoldText()
-
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 
@@ -85,45 +119,19 @@ au FileType xml setlocal foldmethod=syntax
 autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
 autocmd InsertLeave * let &l:foldmethod=w:last_fdm
 
-autocmd InsertEnter * :set nohlsearch
+" Turn off search highlights and clear the curent search pattern when entering insert mode
+autocmd InsertEnter * :set nohlsearch | let @/ = ""
 autocmd InsertLeave * :set hlsearch
 
-set tabstop=2
-set softtabstop=2
-set expandtab
-set shiftwidth=2
-set autoindent
-set number
-set relativenumber
-set autoread
-set incsearch
-set nowrap
-set backspace=indent,eol,start
-set path=**
-
-" Tabs and trailing spaces
-set list
-set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
-
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "base16_eighties"
-
- hi CursorLine cterm=none ctermbg=LightGray
- hi CursorLineNr cterm=none ctermbg=LightGray
- hi CursorColumn cterm=none ctermbg=LightGray
- hi SignColumn cterm=none ctermbg=none
- hi LineNr ctermfg=grey
- hi Search ctermbg=LightBlue ctermfg=DarkGray
-
-let g:ctrlp_cmd = 'CtrlPMRU'
-let g:ctrlp_root_markers = '.git'
-let g:ctrlp_working_path_mode = 'r'
+hi CursorColumn cterm=none ctermbg=LightGray
+hi CursorLine cterm=none ctermbg=LightGray
+hi CursorLineNr cterm=none ctermbg=LightGray
+hi LineNr ctermfg=grey
+hi Search ctermbg=LightBlue ctermfg=DarkGray
+hi IncSearch ctermbg=LightBlue ctermfg=DarkGray
+hi SignColumn cterm=none ctermbg=none
 
 syntax enable
-
-set background=light
-set cursorline
-set fillchars+=vert:\  " Keep this comment so vim wont trim the trailing space
 
 " The Silver Searcher and quickfix tweaks
 if executable('ag')
@@ -144,36 +152,58 @@ endif
 
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
-    vertical copen
+    copen
   else
     cclose
   endif
 endfunction
 
-
-" shortcuts for navigating quickfix results https://stackoverflow.com/a/29287066/850996
 map <silent> <C-l> :call ToggleQuickFix()<cr>
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
+autocmd FileType qf setlocal norelativenumber
 
 " shortcuts for toggling text wrap
 map <C-t><C-w> :set wrap!<CR>
 map <C-t>w :set wrap!<CR>
 
-" settings and shortcuts for vim splits
-set splitright
-
-set wildmode=longest:full   "make cmdline tab completion similar to bash
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*.zip,*~,*/log/*,*/tmp/*.*,*.log,*/.git/*
-set wildignore+=**/source_maps/**
-set wildignore+=/usr/local/share/vim/**
-
+" Trim trailing space before saving
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Use these file types by extension
 autocmd BufNewFile,BufRead *.jst.eco set filetype=xml
 
-if $VIM_CRONTAB == "true"
-  set nobackup
-  set nowritebackup
-endif
+" -----------------------------------------------------------------------------
+" Extended behavior on top of git-blame.vim
+"
+" function! IsFileBuffer()
+"     return bufname('%') !=# '' && getbufvar('%', '&buftype') ==# ''
+" endfunction
+"
+" function! IsGitControlled()
+"   if IsFileBuffer()
+"     let l:filepath = expand('%:p')
+"     let l:git_root = system('git rev-parse --show-toplevel 2>/dev/null')
+"     " If the file is under git control
+"     if v:shell_error == 0 && !empty(l:git_root)
+"       return 1
+"     else
+"       return 0
+"     endif
+"   else
+"     return 0
+"   endif
+" endfunction
+"
+" function! s:SafeGitBlame()
+"   if IsFileBuffer() && IsGitControlled()
+"     execute "GitBlame"
+"   endif
+" endfunction
+"
+" augroup VerticalMove
+"   autocmd!
+"   autocmd CursorHold * call s:SafeGitBlame()
+" augroup END
+"
+" -----------------------------------------------------------------------------
