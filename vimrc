@@ -105,21 +105,31 @@ set list
 set listchars=tab:\|⋅,trail:⋅,nbsp:⋅
 
 syntax enable
-set background=light
 colorscheme solarized
 
-" Cterm Colors https://gist.github.com/meskarune/1db61ed782143c4dc0f35dbfc7f7a336
-
-hi CursorLine cterm=none ctermbg=LightGray
-hi CursorLineNr cterm=none ctermbg=LightGray
-hi CursorColumn cterm=none ctermbg=LightGray
-hi LineNr ctermfg=grey
-hi SignColumn cterm=none ctermbg=LightGray
-hi Search ctermbg=LightBlue ctermfg=DarkGray
-
-" remove noise from window separator
-set fillchars-=vert:\|
-hi VertSplit ctermfg=LightGray
+if $TERM_PROGRAM == "Apple_Terminal" || $__CFBundleIdentifier == "com.anthropic.claudefordesktop"
+  set termguicolors
+  set background=dark
+  hi CursorLine cterm=none ctermbg=DarkGray guibg=#3a3a3a
+  hi CursorLineNr cterm=none ctermbg=DarkGray guibg=#3a3a3a
+  hi CursorColumn cterm=none ctermbg=DarkGray guibg=#3a3a3a
+  hi LineNr ctermfg=grey guifg=#808080
+  hi SignColumn cterm=none ctermbg=DarkGray guibg=#3a3a3a
+  hi Search ctermbg=DarkBlue ctermfg=LightGray guibg=#00008b guifg=#d3d3d3
+  hi VertSplit ctermfg=DarkGray guifg=#3a3a3a
+  " Visual selection: invert solarized dark's normal fg/bg (base0/base03)
+  hi Visual cterm=none ctermfg=Black ctermbg=Grey gui=none guifg=#002b36 guibg=#839496
+else
+  set background=light
+  " Cterm Colors https://gist.github.com/meskarune/1db61ed782143c4dc0f35dbfc7f7a336
+  hi CursorLine cterm=none ctermbg=LightGray
+  hi CursorLineNr cterm=none ctermbg=LightGray
+  hi CursorColumn cterm=none ctermbg=LightGray
+  hi LineNr ctermfg=grey
+  hi SignColumn cterm=none ctermbg=LightGray
+  hi Search ctermbg=LightBlue ctermfg=DarkGray
+  hi VertSplit ctermfg=LightGray
+endif
 
 if has('nvim')
   " neovim appears to default insert mode to a line cursor (annoying)
@@ -130,6 +140,9 @@ endif
 if executable('ag')
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
+" remove noise from window separator
+set fillchars-=vert:\|
   nnoremap \ :Ag<SPACE>
 
   set grepprg=ag\ --nogroup\ --nocolor
@@ -188,3 +201,4 @@ if $VIM_CRONTAB == "true"
   set nobackup
   set nowritebackup
 endif
+
