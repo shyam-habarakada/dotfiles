@@ -109,3 +109,6 @@ export PATH="$HOME/.tgenv/bin:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/Cellar/nvm/0.40.1/versions/node/v22.12.0/bin:$PATH"
+
+export EDITOR=vim
+
