@@ -57,4 +57,10 @@ brew install aws_okta_keyman
 # markdown previewing
 brew install glow
 
+# podman
+brew install podman
+
+# docker CLI
+brew install docker
+
 
