@@ -63,4 +63,6 @@ brew install podman
 # docker CLI
 brew install docker
 
+# Nerd fonts
+brew install --cask font-meslo-lg-nerd-font
 

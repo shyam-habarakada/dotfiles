@@ -103,7 +103,7 @@ alias python=python3
 # alias gd=git difftool
 
 # on startup..
-cd $HOME/dev
+# cd $HOME/dev
 
 export PATH="$HOME/.tgenv/bin:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
@@ -112,3 +112,5 @@ export PATH="/opt/homebrew/Cellar/nvm/0.40.1/versions/node/v22.12.0/bin:$PATH"
 
 export EDITOR=vim
 
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
