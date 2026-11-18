@@ -15,7 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 0
-  let g:airline_theme = "solarized"
+"  let g:airline_theme = "solarized"
 
 Plug 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_working_path_mode = 'ra'
@@ -124,8 +124,8 @@ autocmd InsertEnter * :set nohlsearch | let @/ = ""
 autocmd InsertLeave * :set hlsearch
 
 hi CursorColumn cterm=none ctermbg=LightGray
-hi CursorLine cterm=none ctermbg=LightGray
-hi CursorLineNr cterm=none ctermbg=LightGray
+hi CursorLine cterm=none ctermbg=Black
+hi CursorLineNr cterm=none ctermbg=Black
 hi LineNr ctermfg=grey
 hi Search ctermbg=LightBlue ctermfg=DarkGray
 hi IncSearch ctermbg=LightBlue ctermfg=DarkGray
