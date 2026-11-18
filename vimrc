@@ -26,8 +26,6 @@ Plug 'mhinz/vim-startify'
 
 Plug 'justinmk/vim-sneak'
 
-Plug 'airblade/vim-gitgutter'
-
 Plug 'iberianpig/tig-explorer.vim'
 
 Plug 'github/copilot.vim'
@@ -120,15 +118,7 @@ if $TERM_PROGRAM == "Apple_Terminal" || $__CFBundleIdentifier == "com.anthropic.
   " Visual selection: invert solarized dark's normal fg/bg (base0/base03)
   hi Visual cterm=none ctermfg=Black ctermbg=Grey gui=none guifg=#002b36 guibg=#839496
 else
-  set background=light
-  " Cterm Colors https://gist.github.com/meskarune/1db61ed782143c4dc0f35dbfc7f7a336
-  hi CursorLine cterm=none ctermbg=LightGray
-  hi CursorLineNr cterm=none ctermbg=LightGray
-  hi CursorColumn cterm=none ctermbg=LightGray
-  hi LineNr ctermfg=grey
-  hi SignColumn cterm=none ctermbg=LightGray
-  hi Search ctermbg=LightBlue ctermfg=DarkGray
-  hi VertSplit ctermfg=LightGray
+  " Use defaults
 endif
 
 if has('nvim')
